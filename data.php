@@ -471,7 +471,7 @@
 			$data = array();
 
 			for ($i = 1; $i <= 10; ++$i) {
-				$doc = phpQuery::newDocument(file_get_contents('https://www.setn.com/ViewAll.aspx?p=' . $i));
+				$doc = phpQuery::newDocument(mb_convert_encoding(file_get_contents('https://www.setn.com/ViewAll.aspx?p=' . $i), 'HTML-ENTITIES', 'UTF-8'));
 
 				foreach ($doc['.NewsList > .col-sm-12 > div'] as $div) {
 					$div = pq($div);
